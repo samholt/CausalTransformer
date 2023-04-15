@@ -8,6 +8,9 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.utilities.seed import seed_everything
 from pytorch_lightning.callbacks import LearningRateMonitor
 
+import os, sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from src.models.utils import AlphaRise, FilteringMlFlowLogger
 
 logging.basicConfig(level=logging.INFO)

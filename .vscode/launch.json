@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Train Multi",
+            "type": "python",
+            "request": "launch",
+            // "program": "${file}",
+            "program": "${workspaceFolder}/runnables/train_multi.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["+dataset=cancer_sim", "+backbone=ct", "+backbone/ct_hparams/cancer_sim_domain_conf=['9']", "exp.seed=[10]"],
+        },
+        {
+            "name": "Python: Train MSMs",
+            "type": "python",
+            "request": "launch",
+            // "program": "${file}",
+            "program": "${workspaceFolder}/runnables/train_msm.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // "args": ["+dataset=cancer_sim", "+backbone=msm", "exp.seed=[10,101,1010,10101,101010]"],
+            "args": ["dataset.treatment_mode=multilabel", "+dataset=cancer_sim", "+backbone=msm", "+backbone/ct_hparams/cancer_sim_domain_conf=['0']", "exp.seed=[10,101,1010,10101,101010]"],
+        },
+        {
+            "name": "Python: Train RMSNs",
+            "type": "python",
+            "request": "launch",
+            // "program": "${file}",
+            "program": "${workspaceFolder}/runnables/train_rmsn.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // "args": ["+dataset=cancer_sim", "+backbone=msm", "exp.seed=[10,101,1010,10101,101010]"],
+            "args": ["+dataset=cancer_sim", "+backbone=rmsn", "+backbone/ct_hparams/cancer_sim_domain_conf=['0','1','2']", "exp.seed=[10,101,1010,10101,101010]"],
+        }
+    ]
+}

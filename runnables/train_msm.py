@@ -5,6 +5,9 @@ from omegaconf import DictConfig, OmegaConf
 from hydra.utils import instantiate
 from pytorch_lightning.utilities.seed import seed_everything
 
+import os, sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from src.models.utils import FilteringMlFlowLogger
 from src.models.msm import MSM
 
